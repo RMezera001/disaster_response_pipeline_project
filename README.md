@@ -10,7 +10,12 @@ There are three major portions of this project.
 -  train_classifier.py
   -  This script will load the SQL database created in the previous script and implement a natural language pipeline to categorize future messages into related categories.  The data will be trained using the data and the model will be saved to be used in the webpage implementation.  The process of creating this file can be seen in file 'ML Pipeline Preparation' TPNYB/html.
 -  run.py
-  -  This script launches the webpage with two graphs and the implementation of the NLP model.  
+  -  This script launches the webpage with two graphs and the implementation of the NLP model.
+
+
+## Installation
+
+$  pip install plotly
 
 
 ## Instructions:
@@ -25,10 +30,16 @@ There are three major portions of this project.
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/
+-  When using the Udacity IDE terminal use 'env | grep WORK' to get SPACEDOMAIN and SPACEID.
+-  Use https://SPACEID-3001.SPACEDOMAIN when
 
 ## Complications
 
+##### Model
 Training the model using GirdSearchCV significantly increased the training time required.  In the interest of keeping training time down when running the training script, improving the model was sacrificed.  The current runtime in order to train the model is a little over 30 mins.  
+
+##### Data
+The data categories were very imbalanced so metrics and ability to predict under represented categories is negatively effected.
 
 ## Authors and acknowledgment
 
