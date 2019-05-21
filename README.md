@@ -29,9 +29,8 @@ $  pip install plotly
 2. Run the following command in the app's directory to run your web app.
     `python run.py`
 
-3. Go to http://0.0.0.0:3001/
--  When using the Udacity IDE terminal use 'env | grep WORK' to get SPACEDOMAIN and SPACEID.
--  Use https://SPACEID-3001.SPACEDOMAIN when
+3. Go to http://0.0.0.0:3001/ or http://localhost:3001/
+
 
 ## Complications
 
