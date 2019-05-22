@@ -17,7 +17,9 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.ensemble import AdaBoostClassifier
 import pickle
+from nltk.corpus import stopwords
 
+nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
@@ -41,18 +43,21 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    #Normalize text
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
     #tokenize text
     tokens = word_tokenize(text)
+    # remove stop words
+    tokens = [w for w in tokens if w not in stopwords.words("english")]
     #initiate lemmatizer
     lemmatizer = WordNetLemmatizer()
 
     clean_tokens = []
     #iterate through each token
     for tok in tokens:
-        # lemmatize, normalize case, and remove white space
-        clean_tok = lemmatizer.lemmatize(tok).lower().strip()
+        # lemmatize, and remove white space
+        clean_tok = lemmatizer.lemmatize(tok).strip()
         clean_tokens.append(clean_tok)
-
     return clean_tokens
 
 
